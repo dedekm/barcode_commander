@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    callbacks_attachable (2.3.1)
+    evdev (1.0.0)
+      callbacks_attachable (~> 2.3)
+      libevdev (~> 1.0)
+    ffi (1.13.1)
+    libevdev (1.0.0)
+      linux_input (~> 1.0)
+    linux_input (1.1.1)
+      ffi (~> 1.9)
+    open3 (0.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  evdev
+  open3
+
+BUNDLED WITH
+   2.1.4
