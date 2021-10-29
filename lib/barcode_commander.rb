@@ -12,6 +12,10 @@ class BarcodeCommander
     @logger.info "Starting barcode commander..."
     @logger.info "Process PID #{Process.pid}"
 
+    @pidfile = Bundler.root.join("tmp", "barcode.pid")
+
+    register_signal_handlers
+    write_pid
     detect_scanner
 
   rescue Interrupt
@@ -81,6 +85,20 @@ class BarcodeCommander
       device_params.each do |param|
         logger.info "#{param}: #{@device.send(param)}"
       end
+    end
+
+    def register_signal_handlers
+      trap("INT") { shutdown }
+      trap("TERM") { shutdown }
+    end
+
+    def write_pid
+      File.open(pidfile, "w") { |f| f << Process.pid }
+      at_exit { delete_pidfile }
+    end
+
+    def delete_pidfile
+      FileUtils.rm_f pidfile
     end
 
     def shutdown
