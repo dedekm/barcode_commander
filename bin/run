@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/barcode_commander"
+
+barcode_scanner = BarcodeCommander.new
+barcode_scanner.listen!

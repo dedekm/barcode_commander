@@ -5,19 +5,21 @@ GEM
     evdev (1.0.0)
       callbacks_attachable (~> 2.3)
       libevdev (~> 1.0)
-    ffi (1.13.1)
+    ffi (1.15.4)
     libevdev (1.0.0)
       linux_input (~> 1.0)
     linux_input (1.1.1)
       ffi (~> 1.9)
-    open3 (0.1.0)
+    mono_logger (1.1.1)
+    open3 (0.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   evdev
+  mono_logger
   open3
 
 BUNDLED WITH
-   2.1.4
+   2.2.30
